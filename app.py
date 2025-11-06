@@ -119,7 +119,7 @@ if st.session_state.act and st.session_state.project_type and st.session_state.s
                 with st.spinner("Thinking..."):
                     messages = [{"role": "system", "content": st.session_state.system_prompt}] + st.session_state.chat_history
                     response = client.chat.completions.create(
-                        model=""grok-4-latest"",  # Use appropriate xAI model
+                        model="grok-4-latest",  # Use appropriate xAI model
                         messages=messages,
                         max_tokens=300,
                         temperature=0.7
@@ -139,7 +139,7 @@ if st.session_state.act and st.session_state.project_type and st.session_state.s
         with st.spinner("Putting it all together!"):
             messages = [{"role": "system", "content": st.session_state.system_prompt + "\n\nNow, using all the info from our chat, generate the final project."}] + st.session_state.chat_history
             response = client.chat.completions.create(
-                model=""grok-4-latest"",
+                model="grok-4-latest",
                 messages=messages,
                 max_tokens=800,
                 temperature=0.5
